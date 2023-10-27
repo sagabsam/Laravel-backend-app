@@ -19,6 +19,15 @@ class UserSeeder extends Seeder
             'name' => 'Bagas Tri Reswara',
             'email' => 'reswarabagastri@gmail.com',
             'email_verified_at' => now(),
+            'role' => 'admin',
+            'password' => Hash::make('12345'),
+        ]);
+
+        User::create([
+            'name' => 'Super Admin',
+            'email' => 'superadmin@gmail.com',
+            'email_verified_at' => now(),
+            'role' => 'superadmin',
             'password' => Hash::make('12345'),
         ]);
     }
