@@ -20,7 +20,10 @@ class UserSeeder extends Seeder
             'email' => 'reswarabagastri@gmail.com',
             'email_verified_at' => now(),
             'role' => 'admin',
+            'phone' => '0895412499545',
+            'bio' => 'Mahasiswa Teknik Informatika',
             'password' => Hash::make('12345'),
+            
         ]);
 
         User::create([
@@ -28,6 +31,8 @@ class UserSeeder extends Seeder
             'email' => 'superadmin@gmail.com',
             'email_verified_at' => now(),
             'role' => 'superadmin',
+            'phone' => '081234567891',
+            'bio' => 'Laravel dev',
             'password' => Hash::make('12345'),
         ]);
     }
