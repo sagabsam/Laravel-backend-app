@@ -9,14 +9,31 @@ class UploadController extends Controller
 {
     public function uploadImage(Request $request)
     {
-        $image = $request->image;
-        $namaFile = time().'.'.$image->getClientOriginalExtension();
-        $path = public_path('upload/images');
-        $image->move($path,$namaFile);
+        if ($request->has('image')) {
+            $image = $request->image;
+            $nameFile = time() . '.' . $image->getClientOriginalExtension();
+            $path = public_path('upload/images');
+            $image->move($path, $nameFile);
 
-        return response([
-            'image_path' => '/upload/images/'.$namaFile,
-            'base_url' => url('/'),
-        ]);
+            return response()->json([
+                'image_path' => '/upload/images/' . $nameFile,
+                'base_url' => url('/'),
+            ]);
+        }
+    }
+
+    public function uploadMultipleImage(Request $request)
+    {
+        if ($request->has('image')) {
+            $images = $request->image;
+            foreach ($images as $key => $image) {
+                $nameFile = time() . $key . '.' . $image->getClientOriginalExtension();
+                $path = public_path('upload/images');
+                $image->move($path, $nameFile);
+            }
+            return response()->json([
+                'status' => 'upload successfully',
+            ]);
+        }
     }
 }
