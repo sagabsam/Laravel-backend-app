@@ -6,7 +6,7 @@ use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\UploadController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\CallbackController;
-use App\Models\Product;
+use App\Http\Controllers\Api\BannerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -42,3 +42,4 @@ Route::post('midtrans/notification/handling', [CallbackController::class, 'callb
 
 Route::apiResource('categories', CategoryController::class);
 Route::apiResource('products', ProductController::class);
+Route::apiResource('banners', BannerController::class);
